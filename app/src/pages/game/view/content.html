@@ -18,31 +18,31 @@
         md-row-height-gt-md="1:1" md-row-height="2:2"
         md-gutter="12px" md-gutter-gt-sm="8px" >
 
-                  <md-grid-tile ng-click="page.placeTile('0')">
+                  <md-grid-tile ng-click="page.placeTile('0')" class="blue">
                   {{page.content.board["0"]}}
                 </md-grid-tile>
-                <md-grid-tile ng-click="page.placeTile('1')">
+                <md-grid-tile ng-click="page.placeTile('1')" class="blue">
                   {{page.content.board["1"]}}
                 </md-grid-tile>
-                <md-grid-tile ng-click="page.placeTile('2')">
+                <md-grid-tile ng-click="page.placeTile('2')" class="blue">
                  {{page.content.board["2"]}}
                 </md-grid-tile>
-                <md-grid-tile ng-click="page.placeTile('3')">
+                <md-grid-tile ng-click="page.placeTile('3')" class="blue">
                   {{page.content.board["3"]}}
                 </md-grid-tile>
-                <md-grid-tile ng-click="page.placeTile('4')">
+                <md-grid-tile ng-click="page.placeTile('4')" class="blue">
                   {{page.content.board["4"]}}
                 </md-grid-tile>
-                <md-grid-tile ng-click="page.placeTile('5')">
+                <md-grid-tile ng-click="page.placeTile('5')" class="blue">
                  {{page.content.board["5"]}}
                 </md-grid-tile>
-                <md-grid-tile ng-click="page.placeTile('6')">
+                <md-grid-tile ng-click="page.placeTile('6')" class="blue">
                   {{page.content.board["6"]}}
                 </md-grid-tile>
-                <md-grid-tile ng-click="page.placeTile('7')">
+                <md-grid-tile ng-click="page.placeTile('7')" class="blue">
                   {{page.content.board["7"]}}
                 </md-grid-tile>
-                <md-grid-tile ng-click="page.placeTile('8')">
+                <md-grid-tile ng-click="page.placeTile('8')" class="blue">
                  {{page.content.board["8"]}}
                 </md-grid-tile>
                 </md-grid-list>    
@@ -51,7 +51,6 @@
         <md-card-actions layout="row" layout-align="end center">
             <md-button ng-click="page.submitMove()">Submit Move</md-button>
             <md-button>New Game</md-button>
-            <md-button ng-click="page.checkWin('x')">Did I win</md-button>
         </md-card-actions>
       </md-card>
 

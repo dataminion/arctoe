@@ -218,3 +218,22 @@ span.name {
   font-size:1.1em;
   padding-left:5px;
 }
+
+
+.gray {
+  background: #ccc }
+
+.green {
+  background: #b9f6ca; }
+
+.yellow {
+  background: #ffff8d; }
+
+.blue {
+  background: #e6e6ff }
+
+ .purple {
+  background: #b388ff; }
+
+.red {
+  background: #ff8a80; }
