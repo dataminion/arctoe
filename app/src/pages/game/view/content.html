@@ -11,6 +11,8 @@
             
             Is it my turn: {{page.myTurn}} <br/>
             Message: {{page.message}}
+            
+            <div ng-show="page.computer">Calculating move: <img src='./assets/spinner.gif' style="height:20%; width:20%"/></div>
             <div>
                 <md-grid-list
         md-cols-xs="3" md-cols-sm="3" md-cols-md="3" md-cols-gt-md="3"

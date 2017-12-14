@@ -26,6 +26,7 @@
     self.thisTurn = '9';
     self.victory = false;  
     self.youLose = false;
+    self.computer = false;
     gameService
           .loadContent()
           .then( function( content ) {
@@ -50,6 +51,7 @@
                                self.message = 'You Won!';
                                }
         else{
+        self.computer = true;    
         gameService.getMove(self)
                 .then(function(move) {
                                     self.content.board[move] = 'O'
@@ -63,6 +65,7 @@
                     self.thisTurn = 9}
                  else{ 
                     self.youLose = true;}
+            self.computer = false;
               });  
         }
      };
