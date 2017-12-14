@@ -9,7 +9,10 @@
    * Uses embedded, hard-coded data model; acts asynchronously to simulate
    * remote data service call(s).
    *
-   * @returns {{loadContent: Function}}
+   * @returns {{loadContent: Function
+                getMove: Function
+                submitBoard: Function
+    }}
    * @constructor
    */
   function GameService($http, $q, $timeout){

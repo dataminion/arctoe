@@ -8,11 +8,7 @@
        ]);
 
   /**
-   * About Controller for the Angular Material Starter App
-   * @param $scope
-   * @param $mdSidenav
-   * @param avatarsService
-   * @constructor
+   * ArcToe Game Controller
    */
     
 
