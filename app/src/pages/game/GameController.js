@@ -46,23 +46,20 @@
      }  ;
       
     self.submitMove = function(){
-        $http.get('https://zpj6onnvm5.execute-api.us-west-2.amazonaws.com/prod/getmove')
-            .then(function (response) {
-            data = angular.fromJson(response.data)
-            console.log(data.move_position)
-            if(self.content.board[data.move_position]== '_'){
-                self.content.board[data.move_position] = 'O'
-            }
-        console.log(response)
-      }).then(function () {
+        gameService.getMove(self)
+                .then(function(move) {
+                                    self.content.board[move] = 'O'
+                                    return move;},
+                        function(move) {self.Message = "request flat failed"}
+                )
+                .then(function (move) {
+            self.counter = 0;
             if(!self.whoWon('O')){
-           self.myTurn = true; 
-            self.thisTurn = 9}
-         else{ 
-            self.youLose = true;}
-      });
-        
-        
+                   self.myTurn = true; 
+                    self.thisTurn = 9}
+                 else{ 
+                    self.youLose = true;}
+              });  
      };
     
     self.checkWin= function(player)
@@ -98,13 +95,7 @@
           return true;
       }
     }
-      
 
-    /*winning games
-    
-   
-
-    
     /**
      * Show the bottom sheet
      */
