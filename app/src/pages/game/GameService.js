@@ -37,7 +37,6 @@
             .then(
              function (response) {
                 data = angular.fromJson(response.data)
-                console.log(data.move_position)
                 if(self.content.board[data.move_position]== ''){
                     deferred.resolve(data.move_position);
                 }else{
@@ -45,13 +44,12 @@
                         deferred.resolve(GetMove(self))
                         }else{
                         $timeout( function(){
-                            console.log('throttling loop')
+                            console.log('Enforcing Rate Limiting')
                             self.counter = 0;
                         }, 5000 ).then(function(){deferred.resolve(GetMove(self))})
                         
                     }
                     }
-                console.log(response)
              },
              function(response) {
                 deferred.reject(false);
