@@ -9,14 +9,14 @@
         </md-card-title>
         <md-card-content>
             
-            Is it my turn: {{page.myTurn}} <br/>
+             <md-button ng-show="page.myTurn">It's Your turn</md-button> <br/>
             Message: {{page.message}}
             
             <div ng-show="page.computer">Calculating move: <img src='./assets/spinner.gif' style="height:20%; width:20%"/></div>
             <div>
                 <md-grid-list
         md-cols-xs="3" md-cols-sm="3" md-cols-md="3" md-cols-gt-md="3"
-        md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-row-height-gt-md="1:1" md-row-height="1:1"
         md-gutter="12px" md-gutter-gt-sm="8px" >
 
                   <md-grid-tile ng-click="page.placeTile('0')" class="blue">
