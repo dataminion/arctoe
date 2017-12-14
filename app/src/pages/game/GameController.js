@@ -3,7 +3,7 @@
   angular
        .module('game')
        .controller('GameController', [
-          'gameService', '$scope', '$http', '$mdBottomSheet', '$q',
+          'gameService', '$route', '$scope', '$http', '$mdBottomSheet','$mdDialog', '$q',
           GameController
        ]);
 
@@ -16,7 +16,7 @@
    */
     
 
-  function GameController( gameService,$scope, $http, $mdBottomSheet, $q) {
+  function GameController( gameService, $route, $scope, $http, $mdBottomSheet, $mdDialog, $q) {
     var self = this;
 
     self.content = {};
@@ -98,6 +98,22 @@
       }
     }
 
+    self.showConfirm = function(ev) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    var confirm = $mdDialog.confirm()
+          .title('This Game Has Ended!')
+          .textContent('Also, it was so interesting we are archiving it in "The Big Server in the Sky"')
+          .ariaLabel('well thats over')
+          .targetEvent(ev)
+          .ok('Start a new game')
+          .cancel('Reflect on this one');
+
+    $mdDialog.show(confirm).then(function() {
+      $route.reload();
+    }, function() {
+      self.message = 'interesting';
+    });
+  };
     
     $scope.$watch(function () {
         if(self.victory==true){
@@ -111,6 +127,7 @@
    },function(value){
         if(value==true){
         console.log(self.message)
+        self.showConfirm()
         gameService.submitBoard(self)}
    });
     /**
