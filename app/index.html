@@ -119,7 +119,12 @@
                           .primaryPalette('teal')
                           .accentPalette('red');
 
-              }).config(['$httpProvider', function($httpProvider) {
+              }).config(function($routeProvider) {
+                    $routeProvider.otherwise({
+                        redirectTo: '/game'
+                });
+            })
+              .config(['$httpProvider', function($httpProvider) {
  //   $httpProvider.defaults.useXDomain = true;
 //    delete $httpProvider.defaults.headers.common["X-Requested-With"];
     // If the backend (apollo) gives us a 401, redirect to the login page.

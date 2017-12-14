@@ -67,6 +67,10 @@
         }
      };
     
+    self.newGame = function(){
+      $route.reload();
+     }  ;  
+      
     self.whoWon =function(player){
          if(self.content.board[0] == player &&  self.content.board[1]  == player && self.content.board[2]  == player ){
           return true;
