@@ -1,0 +1,59 @@
+<div ng-cloak>
+  <md-content class="md-padding">
+      <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{page.content.title}}</span>
+            <span class="md-subhead">{{page.content.description}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            
+            Is it my turn: {{page.myTurn}} <br/>
+            Did I win yet: {{page.victory}} <br/>
+            I didn't lose did I: {{page.youLose}} <br/>
+            <div>
+                <md-grid-list
+        md-cols-xs="3" md-cols-sm="3" md-cols-md="3" md-cols-gt-md="3"
+        md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-gutter="12px" md-gutter-gt-sm="8px" >
+
+                  <md-grid-tile ng-click="page.placeTile('0')">
+                  {{page.content.board["0"]}}
+                </md-grid-tile>
+                <md-grid-tile ng-click="page.placeTile('1')">
+                  {{page.content.board["1"]}}
+                </md-grid-tile>
+                <md-grid-tile ng-click="page.placeTile('2')">
+                 {{page.content.board["2"]}}
+                </md-grid-tile>
+                <md-grid-tile ng-click="page.placeTile('3')">
+                  {{page.content.board["3"]}}
+                </md-grid-tile>
+                <md-grid-tile ng-click="page.placeTile('4')">
+                  {{page.content.board["4"]}}
+                </md-grid-tile>
+                <md-grid-tile ng-click="page.placeTile('5')">
+                 {{page.content.board["5"]}}
+                </md-grid-tile>
+                <md-grid-tile ng-click="page.placeTile('6')">
+                  {{page.content.board["6"]}}
+                </md-grid-tile>
+                <md-grid-tile ng-click="page.placeTile('7')">
+                  {{page.content.board["7"]}}
+                </md-grid-tile>
+                <md-grid-tile ng-click="page.placeTile('8')">
+                 {{page.content.board["8"]}}
+                </md-grid-tile>
+                </md-grid-list>    
+            </div>    
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="page.submitMove()">Submit Move</md-button>
+            <md-button>New Game</md-button>
+            <md-button ng-click="page.checkWin('x')">Did I win</md-button>
+        </md-card-actions>
+      </md-card>
+
+        </md-content>
+</div>
