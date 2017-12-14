@@ -1,8 +1,8 @@
 {
-  "name": "web-angular-trials",
-  "description": "Trials portal with Material Design",
+  "name": "arc-to",
+  "description": "A tic tack toe game",
   "version": "0.0.1",
-  "homepage": "digitalminion.com",
+  "homepage": "https://github.com/dataminion/arctoe",
   "license": "MIT",
   "private": true,
   "dependencies": {
