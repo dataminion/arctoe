@@ -39,7 +39,7 @@
             self.thisTurn = position; 
             self.content.board[position] = 'x'
         }else if(position == self.thisTurn){
-             self.content.board[position] = '_'
+             self.content.board[position] = ''
              self.myTurn = true; 
             self.thisTurn = 9
         }

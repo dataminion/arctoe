@@ -17,15 +17,15 @@
       title: 'ArcToe',
       description: "We're still naming things Arc.X right?",
       board: {
-        "0": '_',
-        "1": '_',
-        "2": '_',
-        "3": '_',
-        "4": '_',
-        "5": '_',
-        "6": '_',
-        "7": '_',
-        "8": '_',
+        "0": '',
+        "1": '',
+        "2": '',
+        "3": '',
+        "4": '',
+        "5": '',
+        "6": '',
+        "7": '',
+        "8": '',
     }
     };
     
@@ -38,7 +38,7 @@
              function (response) {
                 data = angular.fromJson(response.data)
                 console.log(data.move_position)
-                if(self.content.board[data.move_position]== '_'){
+                if(self.content.board[data.move_position]== ''){
                     deferred.resolve(data.move_position);
                 }else{
                     if (self.counter < 4) {
@@ -55,6 +55,25 @@
              },
              function(response) {
                 deferred.reject(false);
+              })
+           return deferred.promise;
+        }
+    
+     var SubmitBoard =  function(board){
+            var self = board
+             var deferred = $q.defer();
+         var data = {"final_board": self.content.board}
+        self.counter++ 
+         $http.put('https://gnswrchqte.execute-api.us-west-2.amazonaws.com/prod/putboard',data)
+            .then(
+             function (response) {
+                console.log('game has been submitted')
+                    deferred.resolve('game could not be submitted');
+               
+             },
+             function(response) {
+                 console.log('game could not be submitted')
+                deferred.reject('game could not be submitted');
               })
            return deferred.promise;
         }
