@@ -45,32 +45,26 @@
       <div id="toaster"></div>
     </div>
 
-    <script src="./bower_components/angular/angular.js"></script>
-    <script src="./bower_components/angular-animate/angular-animate.js"></script>
-    <script src="./bower_components/angular-aria/angular-aria.js"></script>
-    <script src="./bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
 
-    <!-- <script src="./src/users/Users.js"></script>
-    <script src="./src/users/UserController.js"></script>
-    <script src="./src/users/UserService.js"></script> -->
+    <script type="text/javascript" src="./src/menu/Menu.js"></script>
+    <script type="text/javascript" src="./src/menu/MenuController.js"></script>
+    <script type="text/javascript" src="./src/menu/MenuService.js"></script>
       
-    <script src="./src/pages/PageService.js"></script>
-
-    <script src="./src/menu/Menu.js"></script>
-    <script src="./src/menu/MenuController.js"></script>
-    <script src="./src/menu/MenuService.js"></script>
-      
-    <script src="./src/pages/game/Game.js"></script>
-    <script src="./src/pages/game/GameRoute.js"></script>
-    <script src="./src/pages/game/GameController.js"></script>
-    <script src="./src/pages/game/GameService.js"></script>  
+    <script type="text/javascript" src="./src/pages/game/Game.js"></script>
+    <script type="text/javascript" src="./src/pages/game/GameRoute.js"></script>
+    <script type="text/javascript" src="./src/pages/game/GameController.js"></script>
+    <script type="text/javascript" src="./src/pages/game/GameService.js"></script>  
       
 
     <script type="text/javascript">
 
           angular
-              .module('starterApp', ['ngMaterial', 'ngAnimate', 'page', 'menu', 'game'])
+              .module('starterApp', ['ngMaterial', 'ngAnimate', 'menu', 'game'])
               .config(function($mdThemingProvider, $mdIconProvider){
 
                   $mdIconProvider
