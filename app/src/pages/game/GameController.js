@@ -46,7 +46,8 @@
             self.toastTurn('Still your turn!');
         }
      }  ;
-      
+    
+    //commit the players move and request a move from the computer  
     self.submitMove = function(){
         if(self.whoWon('x')){self.victory = true;}
         else{
@@ -78,48 +79,41 @@
       
     //Check to see if someone has won  
     self.whoWon =function(player){   
-    //all of the possible winning games.
-    if(self.content.board[0] == player &&  self.content.board[1]  == player && self.content.board[2]  == player ){
-          return true;
-      }
-    else if(self.content.board[3] == player &&  self.content.board[4]  == player && self.content.board[5]  == player ){
-          return true;
-      }
-    
-    else if(self.content.board[6] == player &&  self.content.board[7]  == player && self.content.board[8]  == player ){
-          return true;
-      }
-    
-    else if(self.content.board[0] == player &&  self.content.board[4]  == player && self.content.board[8]  == player ){
-          return true;
-      }
-    else if(self.content.board[6] == player &&  self.content.board[4]  == player && self.content.board[2]  == player ){
-          return true;
-      }
-    else if(self.content.board[0] == player &&  self.content.board[3]  == player && self.content.board[6]  == player ){
-          return true;
-      }
-    
-    else if(self.content.board[1] == player &&  self.content.board[4]  == player && self.content.board[7]  == player ){
-          return true;
-      }
-    
-    else if(self.content.board[2] == player &&  self.content.board[5]  == player && self.content.board[8]  == player ){
-          return true;
-      }
-    else{
-        //test for stalemate
-        var state =true;
-        var output = Object.keys(self.content.board).forEach(function(key) {
-            if(self.content.board[key] == ''){
-                state = false}
-        });
-         self.stalemate = state; 
-      }
-    }
-
-
-      
+        //all of the possible winning games.
+        if(self.content.board[0] == player &&  self.content.board[1]  == player && self.content.board[2]  == player ){
+              return true;
+          }
+        else if(self.content.board[3] == player &&  self.content.board[4]  == player && self.content.board[5]  == player ){
+              return true;
+          }
+        else if(self.content.board[6] == player &&  self.content.board[7]  == player && self.content.board[8]  == player ){
+              return true;
+          }
+        else if(self.content.board[0] == player &&  self.content.board[4]  == player && self.content.board[8]  == player ){
+              return true;
+          }
+        else if(self.content.board[6] == player &&  self.content.board[4]  == player && self.content.board[2]  == player ){
+              return true;
+          }
+        else if(self.content.board[0] == player &&  self.content.board[3]  == player && self.content.board[6]  == player ){
+              return true;
+          }
+        else if(self.content.board[1] == player &&  self.content.board[4]  == player && self.content.board[7]  == player ){
+              return true;
+          }
+        else if(self.content.board[2] == player &&  self.content.board[5]  == player && self.content.board[8]  == player ){
+              return true;
+          }
+        else{
+            //test for stalemate
+            var state =true;
+            var output = Object.keys(self.content.board).forEach(function(key) {
+                if(self.content.board[key] == ''){
+                    state = false}
+            });
+             self.stalemate = state; 
+          }
+    }  
 
     //Monitors for an end game state  
     $scope.$watch(function () {
