@@ -28,53 +28,20 @@
 
   <body ng-app="starterApp" layout="row" ng-cloak ng-controller="MenuController as menu">
 
-    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
-                  md-component-id="left">
-
-      <md-toolbar class="md-whiteframe-z1">
-        
-      </md-toolbar>
-
-      <md-list>
-        <md-list-item ng-repeat="menuItem in menu.menuItems">
-          <md-button
-            ng-href="{{menuItem.href}}"
-            ng-click="menu.setActiveMenu(menuItem, true)"
-            ng-class="{'active md-raised': menu.selected.title === menuItem.title}">
-              {{menuItem.title}}
-          </md-button>
-        </md-list-item>
-      </md-list>
-
-    </md-sidenav>
-
 
     <div flex tabIndex="-1" role="main" class="">
 
       <md-toolbar layout="row" class="md-whiteframe-z1" id="header-toolbar" style="background-color: #{{menu.headerColor}}">
-        <div flex hide-gt-sm>
-          <md-button class="menu-btn" ng-click="menu.toggleView()" aria-label="Show Menu">
-            <md-icon md-svg-icon="menu" ></md-icon>
-          </md-button>
-        </div>
-        <div class="menu" hide-sm hide-xs>
-          <md-button
-            ng-href="{{menuItem.href}}"
-            ng-repeat="menuItem in menu.menuItems"
-            ng-click="menu.setActiveMenu(menuItem)"
-            ng-class="{active: menu.selected.title === menuItem.title}">
-              {{menuItem.title}}
-          </md-button>
-        </div>
+        
       </md-toolbar>
       
-      <md-content flex id="content" class="md-whiteframe-z2" md-scroll-y>
+      <div flex id="content" md-scroll-y>
         <div class="site-title">
-          <h2 class="light">{{menu.selected.title}}</h2>
+          <h2 class="light">ArcToe</h2>
         </div>
         
         <div ng-view class="view-transition"></div>
-      </md-content>
+      </div>
       <div id="toaster"></div>
     </div>
 
@@ -113,7 +80,9 @@
                       .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
                       .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
                       .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
-                      .icon("phone"      , "./assets/svg/phone.svg"       , 512);
+                      .icon("phone"      , "./assets/svg/phone.svg"       , 512)
+                      .icon("close"      , "./assets/svg/close.svg"     , 512)
+                      .icon("fish_eye"      , "./assets/svg/fish_eye.svg"       , 512);
 
                       $mdThemingProvider.theme('default')
                           .primaryPalette('teal')
@@ -125,10 +94,6 @@
                 });
             })
               .config(['$httpProvider', function($httpProvider) {
- //   $httpProvider.defaults.useXDomain = true;
-//    delete $httpProvider.defaults.headers.common["X-Requested-With"];
-    // If the backend (apollo) gives us a 401, redirect to the login page.
-    
   }]).controller('appCtrl', function(pageService){
                 
               });
