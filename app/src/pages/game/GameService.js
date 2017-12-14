@@ -85,6 +85,8 @@
         return $q.when(data);
       },
         getMove: GetMove
+        ,
+        submitBoard: SubmitBoard
     };
   }
 

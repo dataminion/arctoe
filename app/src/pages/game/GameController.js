@@ -3,7 +3,7 @@
   angular
        .module('game')
        .controller('GameController', [
-          'gameService', '$http', '$mdBottomSheet', '$q',
+          'gameService', '$scope', '$http', '$mdBottomSheet', '$q',
           GameController
        ]);
 
@@ -16,7 +16,7 @@
    */
     
 
-  function GameController( gameService, $http, $mdBottomSheet, $q) {
+  function GameController( gameService,$scope, $http, $mdBottomSheet, $q) {
     var self = this;
 
     self.content = {};
@@ -46,6 +46,10 @@
      }  ;
       
     self.submitMove = function(){
+        if(self.whoWon('x')){self.victory = true;
+                               self.message = 'You Won!';
+                               }
+        else{
         gameService.getMove(self)
                 .then(function(move) {
                                     self.content.board[move] = 'O'
@@ -60,10 +64,8 @@
                  else{ 
                     self.youLose = true;}
               });  
+        }
      };
-    
-    self.checkWin= function(player)
-      {if(self.whoWon(player)){self.victory = true}}
     
     self.whoWon =function(player){
          if(self.content.board[0] == player &&  self.content.board[1]  == player && self.content.board[2]  == player ){
@@ -96,6 +98,21 @@
       }
     }
 
+    
+    $scope.$watch(function () {
+        if(self.victory==true){
+            self.message='You Won!'
+            return true;
+        }else if(self.youLose == true){
+            self.message='You Lost!'
+            return true;
+        }
+       return false;
+   },function(value){
+        if(value==true){
+        console.log(self.message)
+        gameService.submitBoard(self)}
+   });
     /**
      * Show the bottom sheet
      */
